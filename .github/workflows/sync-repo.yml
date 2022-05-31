@@ -21,7 +21,7 @@ jobs:
     - uses: srt32/git-actions@v0.0.3
     - name: Git Sync
       run: |
-        git clone https://abdiwan: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@github.com/abdiwan/demo-repo.git
+        git clone git@github.com:abdiwan/demo-repo.git
         cd demo-repo
-        git remote add origin https://arbaz-diwan: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@github.com/arbaz-diwan/demo-1.git 
-        git push --set-upstream origin development
+        git remote add dest https://arbaz-diwan:${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
+        git push --set-upstream dest development
