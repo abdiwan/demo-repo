@@ -21,16 +21,14 @@ jobs:
     - uses: srt32/git-actions@v0.0.3
     - name: Git Sync
       run: |
-        git clone https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
+        git clone https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
         cd demo-repo
-        git fetch --all
-        echo $(ls)
-        git remote rename origin upstream
-        git remote add origin https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
-        git remote -v
-        git fetch
         git checkout development
-        git pull origin development
-        git pull upstream dev
-        git merge dev
+        echo $(ls)
+        git remote add upstream https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
+        git remote -v
+        git fetch upstream
+        git merge upstream/dev --ff
+        git add .
+        git commit -m "syncing repos"
         git push origin development --force
