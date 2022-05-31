@@ -23,7 +23,7 @@ jobs:
       run: |
         git clone https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
         cd demo-repo
-        git fetch all
+        git fetch --all
         git checkout dev
         git remote add dest https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
         git remote -v
