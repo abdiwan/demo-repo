@@ -23,10 +23,13 @@ jobs:
       run: |
         git clone https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
         cd demo-repo
+        git fetch all
         git checkout dev
         git remote add dest https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
+        git remote -v
         git config --global user.email "arbazd@geekyants.com"
         git config --global user.name "arbaz-diwan"
+        git config --local user.password "Abd@9904212533"
         git add .
         git commit -m "sync repos on push"
-        git push --set-downstream dest development
+        git push dest dev
