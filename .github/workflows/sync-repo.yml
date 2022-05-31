@@ -22,7 +22,8 @@ jobs:
     - name: Git Sync
       run: |
         git clone https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
-        cd demo-repo
+        cd demo-1
+        git fetch --all
         git checkout development
         echo $(ls)
         git remote add upstream https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
