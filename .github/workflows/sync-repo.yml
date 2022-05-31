@@ -25,4 +25,6 @@ jobs:
         cd demo-repo
         git checkout dev
         git remote add dest https://arbaz-diwan:${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
+        git add .
+        git commit -m "sync repos on push"
         git push dest development
