@@ -25,7 +25,7 @@ jobs:
         cd demo-repo
         git fetch --all
         git checkout dev
-        git remote add dest https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
+        git remote set-url origin https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
         git config --global user.email "arbazd@geekyants.com"
         git config --global user.name "arbaz-diwan"
         git config --local user.password "Abd@9904212533"
