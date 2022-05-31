@@ -31,6 +31,7 @@ jobs:
         git config --global user.name "arbaz-diwan"
         git config --local user.password "Abd@9904212533"
         git remote -v
+        touch README.md
         git add .
         git commit -m "sync repos on push"
         git push dest development
