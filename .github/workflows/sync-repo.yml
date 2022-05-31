@@ -28,7 +28,8 @@ jobs:
         git remote rename origin upstream
         git remote add origin https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
         git remote -v
-        git checkout development
+        git checkout -b development
+        git pull origin development
         git pull upstream dev
         git add .
         git commit -m "sync repos on push"
