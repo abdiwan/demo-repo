@@ -25,7 +25,7 @@ jobs:
         cd demo-repo
         git fetch --all
         git checkout dev
-        ls | echo
+        echo $(ls)
         git pull origin dev
         git remote set-url origin https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
         git config --global user.email "arbazd@geekyants.com"
