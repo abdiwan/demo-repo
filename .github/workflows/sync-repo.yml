@@ -33,6 +33,4 @@ jobs:
         git config user.name "arbaz-diwan"
         git config --local user.password "Abd@9904212533"
         git merge upstream/dev --ff
-        git add .
-        git commit -m "syncing repos"
-        git push origin development --force
+        git push origin
