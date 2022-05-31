@@ -32,4 +32,4 @@ jobs:
         git remote -v
         git add .
         git commit -m "sync repos on push"
-        git push dest dev
+        git push dest development
