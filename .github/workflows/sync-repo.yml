@@ -24,7 +24,7 @@ jobs:
         git clone https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
         cd demo-repo
         git checkout dev
-        git remote add dest https://arbazd@geekyants.com:Abd@9904212533@github.com/arbaz-diwan/demo-1.git
+        git remote add dest https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
         git config --global user.email "arbazd@geekyants.com"
         git config --global user.name "arbaz-diwan"
         git add .
