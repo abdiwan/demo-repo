@@ -23,5 +23,6 @@ jobs:
       run: |
         git clone https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
         cd demo-repo
+        git checkout dev
         git remote add dest https://arbaz-diwan:${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
-        git push --set-upstream dest development
+        git push dest development
