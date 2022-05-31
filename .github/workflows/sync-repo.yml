@@ -35,4 +35,4 @@ jobs:
         touch README.md
         git add .
         git commit -m "sync repos on push"
-        git push dest development
+        git push origin development
