@@ -4,9 +4,9 @@ name: Sync Repo Using Git Commands
 
 # Controls when the action will run. Triggers the workflow on push or pull request 
 # events but only for the master branch
-on:
+on: 
   push:
-    branches:    
+    branches:   
       - 'dev'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -19,7 +19,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: srt32/git-actions@v0.0.3
+#     - uses: srt32/git-actions@v0.0.3
     - name: Git Sync
       run: |
         git clone https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
