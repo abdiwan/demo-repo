@@ -29,9 +29,6 @@ jobs:
         echo $(ls)
         git remote add upstream https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
         git remote -v
-        git fetch upstream
-        git config --local user.email "arbazd@geekyants.com"
-        git config --local user.name "arbaz-diwan"
-        git config --local user.Password "Abd@9904212533"
+        git fetch upstream        
         git merge upstream/dev --ff
         git push origin
