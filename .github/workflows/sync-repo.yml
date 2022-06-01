@@ -4,9 +4,10 @@ name: Sync Repo Using Git Commands
 
 # Controls when the action will run. Triggers the workflow on push or pull request 
 # events but only for the master branch
-on:
-  push:
-    branches: [ dev ]
+on: [push] 
+#   push:
+#     branches:   
+#       - 'dev'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,10 +19,19 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: srt32/git-actions@v0.0.3
+#     - uses: srt32/git-actions@v0.0.3
     - name: Git Sync
       run: |
-        git clone git@github.com:abdiwan/demo-repo.git
-        cd demo-repo
-        git remote add dest https://arbaz-diwan:${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
-        git push --set-upstream dest development
+        git clone https://${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}@github.com/arbaz-diwan/demo-1.git
+        cd demo-1
+        git fetch --all
+        git checkout development
+        echo $(ls)
+        git remote add upstream https://abdiwan:${{ secrets.SOURCE_SSH_PRIVATE_KEY }}@github.com/abdiwan/demo-repo.git
+        git remote -v
+        git fetch upstream
+        git config --local user.email "arbazd@geekyants.com"
+        git config --local user.name "arbaz-diwan"
+        git config --local user.Password "Abd@9904212533"
+        git merge upstream/dev --ff
+        git push origin
